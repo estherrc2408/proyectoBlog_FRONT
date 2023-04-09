@@ -1,0 +1,30 @@
+<%- include('templates/header.ejs') %>
+<%- include('templates/nav.ejs') %>
+    <section class="form-container">
+        <form class="search-f" method="get" action="/search/">
+            <input class="search-a" type="text" name="articles" placeholder="Search">
+            <input class="sub" type="submit" value="SEARCH">
+        </form>
+    </section>
+
+    <section class="card-container">
+        <div class="grid-container">
+        <% data.forEach(element=> { %>
+            <div class="card" id=<%=element._id%>>
+            <h1>
+                <%= element.title %>
+            </h1>
+            <p>
+                <%= element.description %>
+            </p>
+            <a href="/view">view article</a>
+            </div>
+            <% }) %>
+        </div>
+        <div class="pages">
+            <p>page:<%=page%></p>
+            <p>total articles: <%=totalArticles%></p>
+            <p>total pages: <%= pages %></p>
+        </div>
+    </section>
+
