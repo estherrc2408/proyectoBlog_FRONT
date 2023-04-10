@@ -6,7 +6,6 @@ const getIndexArticles = async (_req, res) => {
   try {
     const url = urlBaseBack;
     const {data} = await fetchApi(url, "GET");
-    console.log(data);
     const info = data.data.docs;//data={}
     // const actualPage = info.page;
     console.log("articles", info)
@@ -42,9 +41,17 @@ const getArticleView = async (req,res) =>{
     res.render('404')
   }}
 
-  const getLogAdmin = async (req, res) => {
+  const getLogAdmin = (req, res) => {
 
-    res.render('log');
+    try{
+
+    res.render('log',{
+      title: 'log in!'
+    });
+    
+  }catch(e){
+    res.render('404')
+  }
 
 };
 

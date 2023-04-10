@@ -35,7 +35,7 @@ const fetchApi = async (url, method, body) => {
     console.log("Error obtenniendo data", e);
     return {
       ok: false,
-      error: e,
+      error,
     };
   }
 };

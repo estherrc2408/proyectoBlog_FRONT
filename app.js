@@ -17,6 +17,8 @@ app.use(cookieParser());
 
 //Routes
 app.use("/", require("./routers/routerFront"));
+app.use('/admin',require('./routers/routerAdminFront'))
+app.use('/logs', require('./routers/routerLogAdmin'));
 
 app.use((_req, res) => {
   res.status(404).render("404", {
@@ -27,6 +29,6 @@ app.use((_req, res) => {
   });
 });
 
-app.use('/log', require('./routers/routerLogAdmin'))
+
 
 app.listen(port, () => console.log(`Server listening on port ${port}...`));
